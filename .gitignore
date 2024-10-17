@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+.npmrc
+
+
+# testing
+/coverage
+
+# production
+/dist
+*\dist
