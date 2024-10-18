@@ -9,8 +9,7 @@
         "skipLibCheck": true,
         "declaration": true,
         "declarationDir": "./dist/types",
-        "emitDeclarationOnly": true,
-        "declarationMap": true
+        "emitDeclarationOnly": true
     },
     "include": ["src/**/*"],
     "files": ["./src/index.ts"]
