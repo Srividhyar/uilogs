@@ -1,6 +1,6 @@
-# uilogs
+# @pawanmagare/ui-logs
 
-** uilogs ** This is basic overview to ensure logging the messages/JSON object to cloud platform under the respective projects and applications.
+** @pawanmagare/ui-logs ** This is basic overview to ensure logging the messages/JSON object to cloud platform under the respective projects and applications.
 
 ## Features
 
@@ -10,13 +10,13 @@ Node Module feature designed for logging is independent body which will be integ
 ## Installation
 
 install the module via npm:
-`npm install uilogs`
+`npm install @pawanmagare/ui-logs`
 
 ## Usage
 
-`js : import { logger } from "uilogs"; `
+`js : import { logger } from "@pawanmagare/ui-logs"; `
 
-Above line imports the logger module from the "uilogs" package. The logger object provides various logging functionalities.
+Above line imports the logger module from the "@pawanmagare/ui-logs" package. The logger object provides various logging functionalities.
 
 `js  : logger.init(meta, path, modulator); `
 

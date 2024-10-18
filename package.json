@@ -1,5 +1,5 @@
 {
-    "name": "uilogs",
+    "name": "@pawanmagare/ui-logs",
     "version": "1.0.2",
     "description": "A Node.js module for capturing user interface activity logs",
     "main": "dist/index.js",
