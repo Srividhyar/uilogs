@@ -14,11 +14,7 @@ describe('isValidURL', () => {
     });
 });
 
-const axiosInstance = axios.create();
-
-jest.spyOn(axios, 'create').mockReturnValue(axiosInstance);
-
-const postSpy = jest.spyOn(axiosInstance, 'post');
+const postSpy = jest.spyOn(axios, 'post');
 
 beforeEach(() => {
     jest.clearAllMocks();
