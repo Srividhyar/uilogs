@@ -1,9 +1,9 @@
 {
-    "name": "uilogs",
-    "version": "1.0.2",
+    "name": "@pawanmagare/ui-logs",
+    "version": "1.0.6",
     "description": "A Node.js module for capturing user interface activity logs",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "types": "dist/types/index.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/Srividhyar/uilogs.git"
@@ -43,7 +43,6 @@
         "typescript": "^5.6.3"
     },
     "dependencies": {
-        "axios": "^1.7.7",
-        "https": "^1.0.0"
+        "axios": "^1.7.7"
     }
 }
