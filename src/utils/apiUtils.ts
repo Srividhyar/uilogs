@@ -31,3 +31,4 @@ export const createLog = async (log: any) => {
         return { status: 'error', message: 'logging error.', error: 'Invalid API URL.' };
     }
 };
+
