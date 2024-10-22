@@ -1,18 +1,20 @@
+import { division, environment } from "./constants";
+
 export type Meta = {
     hostName: string;
     applicationName: string;
-    division: string;
+    division: division;
     correlationId: string;
     sourceApp: string;
-    environment: string;
+    appVersion: string;
+    environment: environment;
     agentDetails: AgentDetails;
     sourceChannel: SourceChannel;
 };
 
 type AgentDetails = {
-    browser: string;
+    browser: { name: string; version: string; }
     agentId: string;
-    appVersion: string;
 };
 
 type SourceChannel = {
