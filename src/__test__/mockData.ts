@@ -1,3 +1,4 @@
+import { division, environment } from '../config/constants';
 import { logTypes, severityLevels } from '../config/interfaces';
 import { Meta } from '../config/types';
 
@@ -5,14 +6,14 @@ export const mockData = {
     meta: {
         hostName: 'hostIP',
         applicationName: 'MSA Web',
-        division: 'bcom / mcom',
+        division: division.bCom,
         correlationId: 'ContactId',
         sourceApp: 'MFE Application Name',
-        environment: 'DEV /QA /Pilot /Prod',
+        appVersion: '24.10.4',
+        environment: environment.DEV,
         agentDetails: {
-            browser: 'Chrome or safari',
-            agentId: 'employee id',
-            appVersion: '24.10.4'
+            browser: { name: 'Chrome or safari', version: "9.0.0" },
+            agentId: 'employee id'
         },
         sourceChannel: {
             type: 'genesys or standAlone',
@@ -58,14 +59,14 @@ export const mockExceptionInitObject = {
     meta: {
         hostName: 'hostIP',
         applicationName: 'MSA Web',
-        division: 'bcom / mcom',
+        division: division.bCom,
         correlationId: 'ContactId',
         sourceApp: 'MFE Application Name',
-        environment: 'DEV /QA /Pilot /Prod',
+        appVersion: '24.10.4',
+        environment: environment.DEV,
         agentDetails: {
-            browser: 'Chrome or safari',
-            agentId: 'employee id',
-            appVersion: '24.10.4'
+            browser: { name: 'Chrome or safari', version: "9.0.0" },
+            agentId: 'employee id'
         },
         sourceChannel: {
             type: 'genesys or standAlone',
@@ -86,14 +87,14 @@ export const mockDataInitObject = {
     meta: {
         hostName: 'hostIP',
         applicationName: 'MSA Web',
-        division: 'bcom / mcom',
+        division: division.bCom,
         correlationId: 'ContactId',
         sourceApp: 'MFE Application Name',
-        environment: 'DEV /QA /Pilot /Prod',
+        appVersion: '24.10.4',
+        environment: environment.DEV,
         agentDetails: {
-            browser: 'Chrome or safari',
-            agentId: 'employee id',
-            appVersion: '24.10.4'
+            browser: { name: 'Chrome or safari', version: "9.0.0" },
+            agentId: 'employee id'
         },
         sourceChannel: {
             type: 'genesys or standAlone',
@@ -133,14 +134,14 @@ export const mockFormObject = {
 export const mockLogObject = {
     hostName: 'hostIP',
     applicationName: 'MSA Web',
-    division: 'bcom / mcom',
+    division: division.bCom,
     correlationId: 'ContactId',
     sourceApp: 'MFE Application Name',
-    environment: 'DEV /QA /Pilot /Prod',
+    appVersion: '24.10.4',
+    environment: environment.DEV,
     agentDetails: {
-        browser: 'Chrome or safari',
-        agentId: 'employee id',
-        appVersion: '24.10.4'
+        browser: { name: 'Chrome or safari', version: "9.0.0" },
+        agentId: 'employee id'
     },
     sourceChannel: {
         type: 'genesys or standAlone',
