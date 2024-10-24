@@ -37,7 +37,7 @@ export const createLog = async (log: any) => {
 export const getToken = async (log: any) => {
     if (isValidURL(appState.getAppState().path)) {
         const response = await axios
-            .get(appState.getAppState().path + "/api/Token", log)
+            .get(appState.getAppState().path + "/api/token")
             .then(response => {
                 return response.status === 200
                     ? response.data.csrfToken
