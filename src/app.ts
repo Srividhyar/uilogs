@@ -21,6 +21,7 @@ class App {
     }
 
     public setToken(token: string) {
+        console.log("ccx-logger::=", token)
         this.csrfToken = token;
     }
 

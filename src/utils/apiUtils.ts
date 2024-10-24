@@ -34,11 +34,12 @@ export const createLog = async (log: any) => {
 
 
 
-export const getToken = async (log: any) => {
+export const getToken = async () => {
     if (isValidURL(appState.getAppState().path)) {
         const response = await axios
             .get(appState.getAppState().path + "/api/token")
             .then(response => {
+                console.log("ccx-logger", response)
                 return response.status === 200
                     ? response.data.csrfToken
                     : "";
