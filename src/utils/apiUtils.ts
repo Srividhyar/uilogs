@@ -12,38 +12,40 @@ export const createLog = async (log: any) => {
         if (!appState.getCsrfToken()) {
             token = await getToken().then(data => { return data.message });
         }
-        const response = await fetch('http://localhost:3100/log', {
-            method: 'POST',
-            headers: {
-                'Csrf-Token': token
-            },
-            body: log
-        })
-       // const data = await res;
-        //console.log("fetch", res)
-        // const response = await axios({
-        //     method: "POST",
-        //     url: appState.getAppState().path + "/log",
-        //     data: log,
-        //     headers: { 'CSRF-Token': appState.getCsrfToken() }
+        // const response = await fetch('http://localhost:3100/log', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Csrf-Token': token
+        //     },
+        //     body: log
         // })
-        //     //  .post(appState.getAppState().path + "/log", { headers: { 'CSRF-Token': appState.getCsrfToken() }, data: log })
-        //     .then(response => {
-        //         return response.status === 201
-        //             ? {
-        //                 status: 'success',
-        //                 message: 'Logging successful!',
-        //                 statusText: response.statusText
-        //             }
-        //             : {
-        //                 status: 'failed',
-        //                 message: 'Something went wrong.',
-        //                 statusText: response.statusText
-        //             };
-        //     })
-        //     .catch(error => {
-        //         return { status: 'error', message: 'logging error.', error };
-        //     });
+        // const data = await res;
+        //console.log("fetch", res)
+        const response = await axios
+            //({
+            //     method: "POST",
+            //     url: appState.getAppState().path + "/log",
+            //     data: log,
+            //     headers: { 'CSRF-Token': appState.getCsrfToken() }
+            // })
+            .post(appState.getAppState().path + "/log", log,
+                { headers: { 'Custom-Header': 'your-custom-header-value', 'CSRF-Token': appState.getCsrfToken(), 'Content-Type': 'application/json', } })
+            .then(response => {
+                return response.status === 201
+                    ? {
+                        status: 'success',
+                        message: 'Logging successful!',
+                        statusText: response.statusText
+                    }
+                    : {
+                        status: 'failed',
+                        message: 'Something went wrong.',
+                        statusText: response.statusText
+                    };
+            })
+            .catch(error => {
+                return { status: 'error', message: 'logging error.', error };
+            });
         return response;
     } else {
         return { status: 'error', message: 'logging error.', error: 'Invalid API URL.' };
