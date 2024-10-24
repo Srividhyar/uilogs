@@ -9,19 +9,19 @@ export const isValidURL = (url: string) => {
 export const createLog = async (log: any) => {
     if (isValidURL(appState.getAppState().path)) {
         const response = await axios
-            .post(appState.getAppState().path, log)
+            .post(appState.getAppState().path + "/log", log, { headers: { 'CSRF-Token': appState.getCsrfToken() } })
             .then(response => {
                 return response.status === 201
                     ? {
-                          status: 'success',
-                          message: 'Logging successful!',
-                          statusText: response.statusText
-                      }
+                        status: 'success',
+                        message: 'Logging successful!',
+                        statusText: response.statusText
+                    }
                     : {
-                          status: 'failed',
-                          message: 'Something went wrong.',
-                          statusText: response.statusText
-                      };
+                        status: 'failed',
+                        message: 'Something went wrong.',
+                        statusText: response.statusText
+                    };
             })
             .catch(error => {
                 return { status: 'error', message: 'logging error.', error };
@@ -31,4 +31,25 @@ export const createLog = async (log: any) => {
         return { status: 'error', message: 'logging error.', error: 'Invalid API URL.' };
     }
 };
+
+
+
+export const getToken = async (log: any) => {
+    if (isValidURL(appState.getAppState().path)) {
+        const response = await axios
+            .get(appState.getAppState().path + "/api/Token", log)
+            .then(response => {
+                return response.status === 200
+                    ? response.data.csrfToken
+                    : "";
+            })
+            .catch(error => {
+                return { status: 'error', message: 'Token API error.', error };
+            });
+        return response;
+    } else {
+        return { status: 'error', message: 'Token API error.', error: 'Invalid API URL.' };
+    }
+};
+
 
