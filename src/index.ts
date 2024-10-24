@@ -5,7 +5,7 @@ import { formLog, exceptionLog, dataLog } from './utils/logsFormat';
 
 const initState = (appConfig: IAppConfig) => {
     appState.setAppState(appConfig);
-    getToken().then(token => appState.setToken(token))
+    getToken()
 };
 
 export const logger = {

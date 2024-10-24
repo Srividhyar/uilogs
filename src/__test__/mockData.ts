@@ -22,7 +22,7 @@ export const mockData = {
             serviceIntent: 'reason to raise service'
         }
     },
-    path: 'some/path',
+    path: 'http://localhost:3100',
     modulator: {
         activator: true,
         severity: severityLevels.WARN,
@@ -103,7 +103,7 @@ export const mockDataInitObject = {
             serviceIntent: 'reason to raise service'
         }
     },
-    path: 'some/path',
+    path: 'http://localhost:3100',
     modulator: {
         activator: true,
         severity: severityLevels.DEBUG,

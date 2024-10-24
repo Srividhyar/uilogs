@@ -8,8 +8,26 @@ export const isValidURL = (url: string) => {
 
 export const createLog = async (log: any) => {
     if (isValidURL(appState.getAppState().path)) {
-        const response = await axios
-            .post(appState.getAppState().path + "/log", log, { headers: { 'CSRF-Token': appState.getCsrfToken() } })
+        let token = appState.getCsrfToken()
+        if (!appState.getCsrfToken()) {
+            token = await getToken().then(data => { return data.message });
+        }
+        // const res = await fetch('https://ccx-msa-dev.cloudrts.net/ccx-placeorder-ui/log', {
+        //     method: 'POST',
+        //     headers: {
+        //         'CSRF-Token': token
+        //     },
+        //     body: log
+        // })
+        // const data = await res.json();
+        // console.log("fetch", data)
+        const response = await axios({
+            method: "POST",
+            url: appState.getAppState().path + "/log",
+            data: log,
+            headers: { 'CSRF-Token': appState.getCsrfToken() }
+        })
+            //  .post(appState.getAppState().path + "/log", { headers: { 'CSRF-Token': appState.getCsrfToken() }, data: log })
             .then(response => {
                 return response.status === 201
                     ? {
@@ -39,10 +57,10 @@ export const getToken = async () => {
         const response = await axios
             .get(appState.getAppState().path + "/api/token")
             .then(response => {
-                console.log("ccx-logger", response)
+                appState.setToken(response.data.csrfToken);
                 return response.status === 200
-                    ? response.data.csrfToken
-                    : "";
+                    ? { status: 'error', message: response.data.csrfToken, error: "" }
+                    : { status: 'error', message: "Token not found", error: "" };
             })
             .catch(error => {
                 return { status: 'error', message: 'Token API error.', error };
